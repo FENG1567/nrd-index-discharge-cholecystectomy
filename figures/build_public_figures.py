@@ -213,22 +213,31 @@ def figure1(d: dict[str, object], output_dir: Path, dpi: int) -> None:
 
 def figure2(d: dict[str, object], output_dir: Path, dpi: int) -> None:
     balance, ps, annual = d["balance"], d["ps"], d["annual"].query("year != 'overall'").copy()
-    fig = plt.figure(figsize=(7.2, 4.65), constrained_layout=True)
-    grid = fig.add_gridspec(1, 3, width_ratios=[1.18, 0.96, 1], wspace=0.30)
+    # A two-row composition gives the dense balance and propensity panels enough
+    # horizontal room.  Panel c spans the lower row so the annual trend remains
+    # legible without changing any underlying values.
+    fig = plt.figure(figsize=(7.2, 5.9), constrained_layout=True)
+    grid = fig.add_gridspec(
+        2, 2,
+        height_ratios=[1.24, 0.76],
+        width_ratios=[1.12, 1.0],
+        wspace=0.38,
+        hspace=0.28,
+    )
     ax = fig.add_subplot(grid[0, 0]); panel(ax, "a")
     wanted = ["AGE", "prior_admissions_90d", "prior_biliary_90d", "FEMALE", "PAY1", "HOSP_URCAT4", "HOSP_UR_TEACH", "year"]
     x = balance[balance.variable.isin(wanted)].copy(); x["label"] = np.where(x.level.astype(str).eq("continuous"), x.variable, x.variable + "=" + x.level.astype(str))
     order = x[x.weighting == "unweighted"].sort_values("smd", key=lambda z: z.abs()).label.tolist()
     pre = x[x.weighting == "unweighted"].set_index("label").loc[order]; post = x[x.weighting == "overlap_weighted"].set_index("label").loc[order]; y = np.arange(len(order))
     ax.scatter(pre.smd.abs(), y, color="#9ba7b2", s=16, label="Unweighted", zorder=3); ax.scatter(post.smd.abs(), y, color=BLUE, s=16, label="Overlap weighted", zorder=3); ax.axvline(0.1, color=RED, ls="--", lw=0.8)
-    ax.set_yticks(y, [z.replace("_", " ") for z in order], fontsize=5); ax.set_xlabel("Absolute standardized mean difference"); ax.set_xlim(0, max(0.37, float(pre.smd.abs().max()) * 1.15)); ax.invert_yaxis(); axis(ax); ax.legend(loc="lower right", fontsize=5.1, handletextpad=0.3, borderpad=0.2); ax.set_title("Selected covariate balance", fontsize=7.4, loc="left", pad=10, fontweight="bold")
+    ax.set_yticks(y, [z.replace("_", " ") for z in order], fontsize=5); ax.set_xlabel("Absolute standardized mean difference"); ax.set_xlim(-0.018, max(0.37, float(pre.smd.abs().max()) * 1.15)); ax.invert_yaxis(); axis(ax); ax.legend(loc="lower right", fontsize=5.1, handletextpad=0.3, borderpad=0.2); ax.set_title("Selected covariate balance", fontsize=7.4, loc="left", pad=10, fontweight="bold")
 
     ax = fig.add_subplot(grid[0, 1]); panel(ax, "b"); ps = ps.copy(); ps["center"] = (ps.bin_lower + ps.bin_upper) / 2; width = float((ps.bin_upper - ps.bin_lower).iloc[0]) * 0.92
     for arm, color, label, sign in [(0, BLUE, "A0", 1), (1, ORANGE, "A1", -1)]:
         part = ps[ps.A == arm]; ax.bar(part.center, sign * part.weighted_fraction, width=width, color=color, alpha=0.82, label=label, lw=0)
-    ax.axhline(0, color="#525a61", lw=0.65); ax.set(xlim=(0, 1), ylim=(-0.26, 0.26), xlabel="Estimated propensity score", ylabel="Weighted fraction\n(A0 above; A1 below)"); axis(ax); ax.legend(loc="upper right", fontsize=5.2); ax.set_title("Aggregate overlap after weighting", fontsize=7.4, loc="left", pad=10, fontweight="bold")
+    ax.axhline(0, color="#525a61", lw=0.65); ax.set(xlim=(-0.025, 1.025), ylim=(-0.26, 0.26), xlabel="Estimated propensity score", ylabel="Weighted fraction\n(A0 above; A1 below)"); axis(ax); ax.legend(loc="upper right", fontsize=5.2); ax.set_title("Aggregate overlap after weighting", fontsize=7.4, loc="left", pad=10, fontweight="bold")
 
-    ax = fig.add_subplot(grid[0, 2]); panel(ax, "c"); annual["completion"] = annual.A1_n / annual.analysis_n * 100; years = annual.year.astype(int).to_numpy(); ax.bar(years, annual.analysis_n.to_numpy() / 1000, color="#c9d4de", width=0.62); ax.set(ylabel="Eligible cohort, thousands", xlabel="Discharge year"); ax.set_xticks(years); axis(ax); second = ax.twinx(); second.plot(years, annual.completion, color=ORANGE, marker="o", lw=1.25, ms=3.3); second.set(ylim=(0, 75), ylabel="A1 completion, %"); second.tick_params(axis="y", colors=ORANGE, labelsize=5.8, length=2.3)
+    ax = fig.add_subplot(grid[1, :]); panel(ax, "c"); annual["completion"] = annual.A1_n / annual.analysis_n * 100; years = annual.year.astype(int).to_numpy(); ax.bar(years, annual.analysis_n.to_numpy() / 1000, color="#c9d4de", width=0.62); ax.set(ylabel="Eligible cohort, thousands", xlabel="Discharge year"); ax.set_xticks(years); axis(ax); second = ax.twinx(); second.plot(years, annual.completion, color=ORANGE, marker="o", lw=1.25, ms=3.3); second.set(ylim=(0, 75), ylabel="A1 completion, %"); second.tick_params(axis="y", colors=ORANGE, labelsize=5.8, length=2.3)
     for year, rate in zip(years, annual.completion): second.text(year, rate + 2, f"{rate:.1f}", ha="center", color=ORANGE, fontsize=5)
     ax.text(0.02, 0.97, "Descriptive only", transform=ax.transAxes, va="top", fontsize=5.1, color=GREY); ax.set_title("Annual cohort and completion reporting", fontsize=7.4, loc="left", pad=10, fontweight="bold")
     save(fig, "Figure_2", output_dir, dpi)
@@ -335,7 +344,7 @@ def figure5(d: dict[str, object], output_dir: Path, dpi: int) -> None:
         t0.append(str(row.events_A0)); t1.append(str(row.events_A1)); a0.append(10 if t0[-1] == "<11" else float(t0[-1])); a1.append(10 if t1[-1] == "<11" else float(t1[-1]))
     y = np.arange(len(comp_names))[::-1]
     ax.barh(y + 0.17, a0, height=0.30, color=BLUE, label="A0"); ax.barh(y - 0.17, a1, height=0.30, color=ORANGE, label="A1"); ax.set_xscale("log"); ax.set(yticks=y, yticklabels=comp_names, xlim=(7, max(7000, max(a0 + a1) * 1.35)), xlabel="Observed event count (log scale)"); axis(ax)
-    for yy, x0, x1, s0, s1 in zip(y, a0, a1, t0, t1): ax.text(x0 * 1.1, yy + 0.17, s0, va="center", fontsize=4.9, color=BLUE); ax.text(x1 * 1.1, yy - 0.17, s1, va="center", fontsize=4.9, color=ORANGE)
+    for yy, x0, x1, s0, s1 in zip(y, a0, a1, t0, t1): ax.text(x0 * 1.1, yy + 0.17, s0, va="center", fontsize=5.0, color=BLUE); ax.text(x1 * 1.1, yy - 0.17, s1, va="center", fontsize=5.0, color=ORANGE)
     ax.legend(fontsize=5, loc="upper left"); ax.set_title("Event-count support for component estimates", fontsize=7.4, loc="left", pad=10, fontweight="bold")
     save(fig, "Figure_5", output_dir, dpi)
 
@@ -359,7 +368,7 @@ def figure6(d: dict[str, object], output_dir: Path, dpi: int) -> None:
 
     ax = fig.add_subplot(grid[0, 2]); panel(ax, "c")
     years = annual.year.astype(int).to_numpy(); ax.plot(years, annual.primary_events_A0, marker="o", color=BLUE, lw=1.35, label="A0"); ax.plot(years, annual.primary_events_A1, marker="o", color=ORANGE, lw=1.35, label="A1"); ax.set(xticks=years, xlabel="Discharge year", ylabel="Observed primary events"); axis(ax); ax.legend(fontsize=5.2, loc="upper right")
-    ax.set_title("Annual event counts", fontsize=7.4, loc="left", pad=10, fontweight="bold"); ax.text(0.02, 0.04, f"n = {int(hosp.hospital_years.iloc[0]):,} hospital-years; aggregate descriptive summary", transform=ax.transAxes, fontsize=4.9, color=GREY)
+    ax.set_title("Annual event counts", fontsize=7.4, loc="left", pad=10, fontweight="bold"); ax.text(0.02, 0.04, f"n = {int(hosp.hospital_years.iloc[0]):,} hospital-years; aggregate descriptive summary", transform=ax.transAxes, fontsize=5.0, color=GREY)
     save(fig, "Figure_6", output_dir, dpi)
 
 
