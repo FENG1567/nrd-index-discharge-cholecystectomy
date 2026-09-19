@@ -251,7 +251,16 @@ def _endpoint_rows(outcomes: pd.DataFrame) -> list[pd.Series]:
 def figure3(d: dict[str, object], output_dir: Path, dpi: int) -> None:
     summary, outcomes = d["summary"], d["outcomes"]
     primary = summary["primary"]; rows = _endpoint_rows(outcomes)
-    fig = plt.figure(figsize=(7.2, 4.75), constrained_layout=True); grid = fig.add_gridspec(1, 3, width_ratios=[0.92, 1.27, 0.95], wspace=0.33)
+    # Use a two-row composition so the long diagnostic labels in panel b and
+    # the event-count labels in panel c are not compressed into narrow columns.
+    fig = plt.figure(figsize=(7.2, 5.9), constrained_layout=True)
+    grid = fig.add_gridspec(
+        2, 2,
+        height_ratios=[1.05, 1.25],
+        width_ratios=[0.92, 1.28],
+        wspace=0.32,
+        hspace=0.42,
+    )
     ax = fig.add_subplot(grid[0, 0]); panel(ax, "a"); values = [primary["risk_A0_percent"], primary["risk_A1_percent"]]; ax.bar([0, 1], values, color=[BLUE, ORANGE], width=0.62); ax.set(xticks=[0, 1], xticklabels=["A0", "A1"], ylim=(0, 13.5), ylabel="Standardized 90-day risk, %")
     for x, value in enumerate(values): ax.text(x, value + 0.35, f"{value:.3f}%", ha="center", fontsize=6.2, fontweight="bold")
     ax.text(0.5, 0.72, f"A0 minus A1\n{primary['rd_percent']:.3f} percentage points\n95% CI {primary['ci_low_percent']:.3f} to {primary['ci_high_percent']:.3f}", transform=ax.transAxes, ha="center", va="center", fontsize=5.5, bbox=dict(boxstyle="round,pad=.3", facecolor="#f4f7f9", edgecolor=MID, lw=0.5)); axis(ax); ax.set_title("Primary standardized risks", fontsize=7.4, loc="left", pad=10, fontweight="bold")
@@ -264,7 +273,7 @@ def figure3(d: dict[str, object], output_dir: Path, dpi: int) -> None:
         ax.plot([lo, hi], [yy, yy], color=color, lw=1.15); ax.scatter(rd, yy, color=color, s=22, zorder=3)
     ax.axvline(0, color="#4f5961", lw=0.65); ax.set_yticks(y, labels, fontsize=5.25); ax.set(xlim=(-0.25, 10.1), xlabel="A0 minus A1 adjusted association risk difference, percentage points"); axis(ax); ax.text(0.03, 0.92, "Primary: corrected full-refit CI\nComponents: supportive fixed-score CI", transform=ax.transAxes, fontsize=5.0, va="top", color=GREY, bbox=dict(boxstyle="round,pad=.18", facecolor="white", edgecolor="none", alpha=0.9)); ax.set_title("Primary and diagnostic-component associations", fontsize=7.4, loc="left", pad=10, fontweight="bold")
 
-    ax = fig.add_subplot(grid[0, 2]); panel(ax, "c"); components = ["biliary_composite", "k80", "k81", "k830", "k85_total", "k851"]; label_map = {"biliary_composite": "Primary composite", "k80": "K80*", "k81": "K81*", "k830": "K83.0", "k85_total": "K85*", "k851": "K85.1*"}; event_rows = {str(r.component): r for r in outcomes.itertuples()}; y = np.arange(len(components))[::-1]; n0, n1, text0, text1 = [], [], [], []
+    ax = fig.add_subplot(grid[1, :]); panel(ax, "c"); components = ["biliary_composite", "k80", "k81", "k830", "k85_total", "k851"]; label_map = {"biliary_composite": "Primary composite", "k80": "K80*", "k81": "K81*", "k830": "K83.0", "k85_total": "K85*", "k851": "K85.1*"}; event_rows = {str(r.component): r for r in outcomes.itertuples()}; y = np.arange(len(components))[::-1]; n0, n1, text0, text1 = [], [], [], []
     for component in components:
         row = event_rows[component] if component in event_rows else event_rows.get(component, None)
         if row is None:
