@@ -361,8 +361,17 @@ def figure5(d: dict[str, object], output_dir: Path, dpi: int) -> None:
 def figure6(d: dict[str, object], output_dir: Path, dpi: int) -> None:
     """Descriptive hospital-practice and annual record-reporting panels."""
     annual = d["annual"].query("year != 'overall'").copy(); hosp = d["hospital"]
-    fig = plt.figure(figsize=(7.2, 4.65), constrained_layout=True)
-    grid = fig.add_gridspec(1, 3, width_ratios=[1.0, 1.15, 1.05], wspace=0.34)
+    # The completion-rate and annual-count panels carry horizontal annotations;
+    # placing them in a two-row layout avoids compressing those annotations into
+    # slender columns while preserving the three-panel reading order.
+    fig = plt.figure(figsize=(7.2, 5.75), constrained_layout=True)
+    grid = fig.add_gridspec(
+        2, 2,
+        height_ratios=[0.92, 1.16],
+        width_ratios=[1.0, 1.18],
+        wspace=0.34,
+        hspace=0.36,
+    )
 
     ax = fig.add_subplot(grid[0, 0]); panel(ax, "a")
     nvals = [10, 10, 13]; xpos = np.arange(3); ax.bar(xpos, nvals, color="#c9d4de", width=0.58); ax.set(xticks=xpos, xticklabels=["P25", "Median", "P75"], xlabel="Hospital-year patient count", ylabel="Aggregate count"); axis(ax); ax.set_ylim(0, 15)
@@ -372,12 +381,12 @@ def figure6(d: dict[str, object], output_dir: Path, dpi: int) -> None:
 
     ax = fig.add_subplot(grid[0, 1]); panel(ax, "b")
     vals = [float(hosp.q25_completion_rate.iloc[0]) * 100, float(hosp.median_completion_rate.iloc[0]) * 100, float(hosp.q75_completion_rate.iloc[0]) * 100, float(hosp.min_completion_rate.iloc[0]) * 100, float(hosp.max_completion_rate.iloc[0]) * 100]
-    ax.plot([vals[3], vals[4]], [1, 1], color=MID, lw=2.0); ax.plot([vals[0], vals[2]], [1, 1], color=NAVY, lw=6.0, solid_capstyle="butt"); ax.scatter(vals[1], 1, color=ORANGE, s=30, zorder=3); ax.set(yticks=[1], yticklabels=["Hospital-year"], xlim=(-5, 105), xlabel="A1 completion rate, %"); axis(ax); ax.text(vals[1], 1.12, f"median {vals[1]:.1f}%", ha="center", fontsize=5.2, color=ORANGE)
+    ax.plot([vals[3], vals[4]], [1, 1], color=MID, lw=2.0); ax.plot([vals[0], vals[2]], [1, 1], color=NAVY, lw=6.0, solid_capstyle="butt"); ax.scatter(vals[1], 1, color=ORANGE, s=30, zorder=3); ax.set(yticks=[1], yticklabels=["Hospital-year"], xlim=(-5, 105), ylim=(0.72, 1.32), xlabel="A1 completion rate, %"); axis(ax); ax.text(vals[1], 1.16, f"median {vals[1]:.1f}%", ha="center", fontsize=5.2, color=ORANGE)
     ax.set_title("Completion-rate range", fontsize=7.4, loc="left", pad=10, fontweight="bold")
 
-    ax = fig.add_subplot(grid[0, 2]); panel(ax, "c")
+    ax = fig.add_subplot(grid[1, :]); panel(ax, "c")
     years = annual.year.astype(int).to_numpy(); ax.plot(years, annual.primary_events_A0, marker="o", color=BLUE, lw=1.35, label="A0"); ax.plot(years, annual.primary_events_A1, marker="o", color=ORANGE, lw=1.35, label="A1"); ax.set(xticks=years, xlabel="Discharge year", ylabel="Observed primary events"); axis(ax); ax.legend(fontsize=5.2, loc="upper right")
-    ax.set_title("Annual event counts", fontsize=7.4, loc="left", pad=10, fontweight="bold"); ax.text(0.02, 0.04, f"n = {int(hosp.hospital_years.iloc[0]):,} hospital-years; aggregate descriptive summary", transform=ax.transAxes, fontsize=5.0, color=GREY)
+    ax.set_title(f"Annual event counts\n(n = {int(hosp.hospital_years.iloc[0]):,} hospital-years; descriptive summary)", fontsize=7.4, loc="left", pad=10, fontweight="bold")
     save(fig, "Figure_6", output_dir, dpi)
 
 
