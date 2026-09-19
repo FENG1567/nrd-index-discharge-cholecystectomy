@@ -1,0 +1,2 @@
+analysis_unit,hospital_years,median_n,q25_n,q75_n,median_completion_rate,q25_completion_rate,q75_completion_rate,min_completion_rate,max_completion_rate,interpretation
+hospital-year,8572,<11,<11,13,0.5714285714285714,0.3333333333333333,0.75,0.0,1.0,descriptive only; no risk-standardized quality-outlier classification

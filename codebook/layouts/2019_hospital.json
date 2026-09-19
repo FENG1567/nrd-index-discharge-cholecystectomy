@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00"
+  },
+  "specification": {
+    "year": 2019,
+    "kind": "HOSPITAL",
+    "dataset_name": "NRD_2019_HOSPITAL_V2",
+    "observations": 2507,
+    "declared_elements": 12,
+    "source_url": "https://hcup-us.ahrq.gov/db/nation/nrd/stats/FileSpecifications_NRD_2019_Hospital_V2.TXT",
+    "source_page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "source_http_status": 200,
+    "source_bytes": 1918,
+    "source_sha256": "55b6526c5f2e04296f94bab31c518db0b89dbdb48e22aaa14a372195fb17200a",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00",
+    "created_on": "11/30/2022",
+    "parsed_elements": 12,
+    "ordered_columns": [
+      {
+        "position": 1,
+        "name": "HOSP_BEDSIZE",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Bed size of hospital"
+      },
+      {
+        "position": 2,
+        "name": "H_CONTRL",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Control/ownership of hospital"
+      },
+      {
+        "position": 3,
+        "name": "HOSP_NRD",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD hospital identifier"
+      },
+      {
+        "position": 4,
+        "name": "HOSP_URCAT4",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Hospital urban-rural designation"
+      },
+      {
+        "position": 5,
+        "name": "HOSP_UR_TEACH",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Teaching status of urban hospitals"
+      },
+      {
+        "position": 6,
+        "name": "NRD_STRATUM",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD stratum used for weighting"
+      },
+      {
+        "position": 7,
+        "name": "N_DISC_U",
+        "length": 8,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of universe discharges in NRD_STRATUM"
+      },
+      {
+        "position": 8,
+        "name": "N_HOSP_U",
+        "length": 4,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of universe hospitals in NRD_STRATUM"
+      },
+      {
+        "position": 9,
+        "name": "S_DISC_U",
+        "length": 8,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of sample discharges in NRD_STRATUM"
+      },
+      {
+        "position": 10,
+        "name": "S_HOSP_U",
+        "length": 6,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of sample hospitals in NRD_STRATUM"
+      },
+      {
+        "position": 11,
+        "name": "TOTAL_DISC",
+        "length": 6,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Total hospital discharges"
+      },
+      {
+        "position": 12,
+        "name": "YEAR",
+        "length": 4,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Calendar year"
+      }
+    ],
+    "validation": {
+      "http_200": true,
+      "sha256_nonempty": true,
+      "parsed_equals_declared": true,
+      "observations_match_page": true,
+      "dataset_name_match_page": true,
+      "positions_contiguous": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+component,principal_diagnosis_rule,relationship,role
+k80,I10_DX1 starts with K80,Non-mutually-exclusive patient-level 90-day risk flag,biliary component
+k81,I10_DX1 starts with K81,Non-mutually-exclusive patient-level 90-day risk flag,biliary component
+k830,I10_DX1 starts with K830,Non-mutually-exclusive patient-level 90-day risk flag,biliary component
+k851,I10_DX1 starts with K851,Non-mutually-exclusive patient-level 90-day risk flag,biliary pancreatitis component
+other_k85,I10_DX1 starts with K85 but not K851,Non-mutually-exclusive patient-level 90-day risk flag,other acute pancreatitis component
+k85_total,k851 OR other_k85 during 90 days,Derived union; may overlap biliary components on separate readmissions,acute pancreatitis total
+biliary_composite,k80 OR k81 OR k830 OR k85_total during 90 days,Derived union; constructed from non-mutually-exclusive flags,component composite

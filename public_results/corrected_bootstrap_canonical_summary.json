@@ -1,0 +1,20 @@
+{
+  "analysis_id": "bjs-reanalysis-v4",
+  "primary_rd": "8.700",
+  "primary_ci": [
+    "8.287",
+    "9.080"
+  ],
+  "bootstrap": {
+    "seed": 20260913,
+    "completed": 1000,
+    "failed": 0,
+    "method": "corrected full-nuisance-refit within-stratum hospital-cluster percentile bootstrap; original stratum|hospital copies kept together in hospital-grouped five-fold fitting",
+    "mc_endpoint_se_low": 0.00016702325008362037,
+    "mc_endpoint_se_high": 0.00019668062088971388,
+    "group_crossfold_violations": 0,
+    "serial_one_worker_difference": 0.0
+  },
+  "patient_level_exported": false,
+  "note": "Canonical corrected bootstrap summary; historical flawed intervals intentionally excluded."
+}

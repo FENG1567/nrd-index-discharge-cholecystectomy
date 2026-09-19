@@ -1,0 +1,134 @@
+{
+  "codebook_id": "nrd_mild_biliary_ap_v2.0.0",
+  "frozen_on": "2026-09-11",
+  "principles": {
+    "normalization": "Uppercase and remove decimal points and surrounding whitespace.",
+    "main_time_zero": "Index discharge day = NRD_DaysToEvent + LOS.",
+    "patient_and_hospital_linkage": "Never link NRD_VisitLink or HOSP_NRD across calendar years.",
+    "baseline_blacklist": [
+      "APRDRG_Severity",
+      "APRDRG_Risk_Mortality",
+      "LOS",
+      "TOTCHG",
+      "DISPUNIFORM",
+      "REHABTRANSFER",
+      "post-treatment diagnoses",
+      "post-treatment procedures"
+    ]
+  },
+  "cohort": {
+    "age_min": 18,
+    "main_principal_dx_exact": ["K8510"],
+    "broad_principal_dx_prefix": ["K851"],
+    "survived_discharge_value": 0,
+    "discharge_months": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "severe_exclusions": {
+      "shock_any_dx_prefix": ["R57"],
+      "acute_or_acute_on_chronic_respiratory_failure_any_dx_prefix": ["J960", "J962"],
+      "severe_sepsis_any_dx_exact": ["R6520", "R6521"],
+      "invasive_mechanical_ventilation_any_pr_exact": ["5A1935Z", "5A1945Z", "5A1955Z"],
+      "renal_replacement_any_pr_prefix": ["5A1D"]
+    }
+  },
+  "exposure": {
+    "cholecystectomy_any_pr_prefix": ["0FT4"],
+    "definition": "A=1 if any index-admission ICD-10-PCS procedure begins 0FT4; otherwise A=0. Procedure-day validity is audited but does not override the discharge-status exposure."
+  },
+  "biliary_phenotypes": {
+    "choledocholithiasis_any_dx_prefix": ["K803", "K804", "K805", "K806", "K807"],
+    "cholangitis_any_dx_prefix": ["K830"],
+    "bile_duct_obstruction_any_dx_prefix": ["K831"],
+    "cholecystitis_any_dx_prefix": ["K800", "K801", "K81"]
+  },
+  "outcomes": {
+    "primary_middle_principal": {
+      "principal_dx_prefix": ["K80", "K81", "K830", "K85"],
+      "label": "Principal-diagnosis biliary or acute pancreatitis readmission",
+      "role": "primary"
+    },
+    "narrow_principal": {
+      "principal_dx_prefix": ["K80", "K81", "K830", "K851"],
+      "label": "Principal-diagnosis gallstone disease, cholecystitis, cholangitis, or recurrent biliary acute pancreatitis",
+      "role": "sensitivity"
+    },
+    "wide_any_dx": {
+      "any_dx_prefix": ["K80", "K81", "K82", "K83", "K85"],
+      "label": "Any-diagnosis broad biliary or acute pancreatitis readmission",
+      "role": "sensitivity_and_stage1_bridge"
+    },
+    "recurrent_acute_pancreatitis": {
+      "principal_dx_prefix": ["K85"],
+      "role": "key_secondary"
+    },
+    "recurrent_biliary_acute_pancreatitis": {
+      "principal_dx_prefix": ["K851"],
+      "role": "key_secondary"
+    },
+    "all_cause": {
+      "role": "secondary"
+    },
+    "subsequent_inpatient_cholecystectomy": {
+      "any_pr_prefix": ["0FT4"],
+      "role": "secondary"
+    }
+  },
+  "ercp_related_inpatient_procedure": {
+    "status": "secondary_provisional_anatomic_algorithm",
+    "pcs_logic": {
+      "section_body_system_prefix": "0F",
+      "root_operations": ["7", "8", "9", "C", "H", "J", "P", "W"],
+      "body_parts": ["5", "6", "7", "8", "9", "B", "C", "D"],
+      "approach_character": "8"
+    },
+    "label": "Endoscopic hepatobiliary or pancreatic duct procedure compatible with inpatient ERCP",
+    "limitation": "This is not a single validated ERCP gold standard and is never a primary endpoint."
+  },
+  "chronic_comorbidity": {
+    "algorithm": "comorbidipy 0.5.0 ICD-10 Quan Charlson and Elixhauser component maps",
+    "input": "Index-admission I10_DX2 through I10_DX40 after normalization",
+    "use": "Individual chronic components and total scores; acute components are reviewed before modeling.",
+    "diagnosis_absence": "Not coded, not ordinary missingness."
+  },
+  "frailty_proxy": {
+    "primary_algorithm": "comorbidipy 0.5.0 Hospital Frailty Risk Score applied only at age 75 years or older; younger patients receive an explicit not-applicable indicator rather than a zero-risk interpretation.",
+    "primary_use": "Baseline adjustment, age-eligible subgroup description, and exploratory HTE.",
+    "secondary_status": "nonvalidated_domain_count_sensitivity_only",
+    "domains": {
+      "dementia": ["F00", "F01", "F02", "F03", "G30"],
+      "delirium": ["F05"],
+      "malnutrition_or_weight_loss": ["E40", "E41", "E42", "E43", "E44", "E45", "E46", "R634"],
+      "mobility_disorder": ["R26"],
+      "pressure_ulcer": ["L89"],
+      "urinary_or_fecal_incontinence": ["R32", "R15", "N394"]
+    },
+    "use": "The six-domain count is sensitivity-only and is never labeled a validated frailty index."
+  },
+  "harm": {
+    "in_hospital_death": "DIED",
+    "procedure_day_based_reintervention": "Only procedures occurring after a valid cholecystectomy PRDAY may be temporally labeled post-procedure.",
+    "diagnosis_only_complications": "Describe as coded co-occurrence because diagnosis onset is unavailable."
+  },
+  "windows": {
+    "primary_gap_days": [1, 90],
+    "secondary_days": [30, 60],
+    "same_day_sensitivity_gap_days": [0, 90]
+  },
+  "model_baseline_domains": [
+    "age",
+    "sex",
+    "payer",
+    "ZIP income quartile",
+    "patient residence urbanicity",
+    "resident status",
+    "ED source",
+    "elective status",
+    "weekend admission",
+    "chronic comorbidity components and burden",
+    "biliary phenotype",
+    "within-year prior utilization and observed lookback",
+    "hospital bed size",
+    "hospital urban-rural teaching category",
+    "hospital control",
+    "calendar year and quarter"
+  ]
+}

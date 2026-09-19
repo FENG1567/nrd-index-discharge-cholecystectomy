@@ -1,0 +1,23 @@
+# Private licensed-input layout template.
+# The orchestrators consume these exact archive names. Do not commit archive
+# paths containing user-specific locations, passwords, host details, or records.
+2018_core=PRIVATE_ROOT/raw/archives/2018/NRD_2018_CORE.zip
+2018_severity=PRIVATE_ROOT/raw/archives/2018/NRD_2018_Severity.zip
+2018_hospital=PRIVATE_ROOT/raw/archives/2018/NRD_2018_HOSPITAL.zip
+2018_ccr=PRIVATE_ROOT/raw/archives/2018/cc2018NRD.zip
+2019_core=PRIVATE_ROOT/raw/archives/2019/NRD_2019_CORE.zip
+2019_severity=PRIVATE_ROOT/raw/archives/2019/NRD_2019_Severity.zip
+2019_hospital=PRIVATE_ROOT/raw/archives/2019/NRD_2019_HOSPITAL.zip
+2019_ccr=PRIVATE_ROOT/raw/archives/2019/cc2019NRD.zip
+2020_core=PRIVATE_ROOT/raw/archives/2020/NRD_2020_CORE.zip
+2020_severity=PRIVATE_ROOT/raw/archives/2020/NRD_2020_Severity.zip
+2020_hospital=PRIVATE_ROOT/raw/archives/2020/NRD_2020_HOSPITAL.zip
+2020_ccr=PRIVATE_ROOT/raw/archives/2020/cc2020NRD.zip
+2021_core=PRIVATE_ROOT/raw/archives/2021/NRD_2021_CORE.zip
+2021_severity=PRIVATE_ROOT/raw/archives/2021/NRD_2021_Severity.zip
+2021_hospital=PRIVATE_ROOT/raw/archives/2021/NRD_2021_HOSPITAL.zip
+2021_ccr=PRIVATE_ROOT/raw/archives/2021/cc2021NRD.zip
+2022_core=PRIVATE_ROOT/raw/archives/2022/NRD_2022_CORE.zip
+2022_severity=PRIVATE_ROOT/raw/archives/2022/NRD_2022_Severity.zip
+2022_hospital=PRIVATE_ROOT/raw/archives/2022/NRD_2022_HOSPITAL.zip
+2022_ccr=PRIVATE_ROOT/raw/archives/2022/cc2022NRD.zip

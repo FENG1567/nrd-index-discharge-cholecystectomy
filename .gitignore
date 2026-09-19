@@ -1,0 +1,29 @@
+# Local credentials and licensed data
+.nrd_credentials.json
+config/.nrd_credentials.json
+*.7z
+*.zip
+*.rar
+*.dta
+*.sav
+*.sas7bdat
+*.parquet
+*.raw
+private_data/
+licensed_data/
+
+# Local analysis outputs
+build/
+tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Host/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

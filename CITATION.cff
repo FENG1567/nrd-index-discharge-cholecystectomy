@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "Index-discharge cholecystectomy after coded mild biliary acute pancreatitis: public reproducibility package"
+message: "If you use this repository, please cite the associated manuscript and this software package."
+type: software
+authors:
+  - family-names: Feng
+    given-names: Shuo
+  - family-names: Shi
+    given-names: Chao
+  - family-names: Liu
+    given-names: Tianming
+  - family-names: Ding
+    given-names: Haoran
+  - family-names: Hang
+    given-names: Fenghe
+  - family-names: Huang
+    given-names: Zhenghao
+  - family-names: Liu
+    given-names: Liwei
+date-released: 2026-09-13
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/FENG1567/nrd-index-discharge-cholecystectomy"
+keywords:
+  - Nationwide Readmissions Database
+  - acute pancreatitis
+  - cholecystectomy
+  - reproducibility

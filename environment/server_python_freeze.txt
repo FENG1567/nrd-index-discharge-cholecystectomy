@@ -1,0 +1,12 @@
+# Sanitized environment record for the private analysis
+python=3.12
+numpy=1.26.x
+pandas=2.2.x
+pyarrow=17.x
+scikit-learn=1.5.x
+comorbidipy=0.5.0
+matplotlib=3.x
+python-docx=1.1.x
+
+# Machine-specific paths, host details, credentials, and archive locations are intentionally omitted.
+

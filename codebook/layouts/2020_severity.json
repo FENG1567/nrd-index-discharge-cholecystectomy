@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00"
+  },
+  "specification": {
+    "year": 2020,
+    "kind": "SEVERITY",
+    "dataset_name": "NRD_2020_SEVERITY",
+    "observations": 16692694,
+    "declared_elements": 5,
+    "source_url": "https://hcup-us.ahrq.gov/db/nation/nrd/stats/FileSpecifications_NRD_2020_Severity.TXT",
+    "source_page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "source_http_status": 200,
+    "source_bytes": 1142,
+    "source_sha256": "94f10df823e4c64825896bf41f1195125cc1a77cf665c1e2dd20430a0274664f",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00",
+    "created_on": "11/23/2022",
+    "parsed_elements": 5,
+    "ordered_columns": [
+      {
+        "position": 1,
+        "name": "APRDRG",
+        "length": 4,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "All Patient Refined DRG"
+      },
+      {
+        "position": 2,
+        "name": "APRDRG_Risk_Mortality",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "All Patient Refined DRG: Risk of Mortality Subclass"
+      },
+      {
+        "position": 3,
+        "name": "APRDRG_Severity",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "All Patient Refined DRG: Severity of Illness Subclass"
+      },
+      {
+        "position": 4,
+        "name": "HOSP_NRD",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD hospital identifier"
+      },
+      {
+        "position": 5,
+        "name": "KEY_NRD",
+        "length": 15,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD record identifier"
+      }
+    ],
+    "validation": {
+      "http_200": true,
+      "sha256_nonempty": true,
+      "parsed_equals_declared": true,
+      "observations_match_page": true,
+      "dataset_name_match_page": true,
+      "positions_contiguous": true
+    }
+  }
+}

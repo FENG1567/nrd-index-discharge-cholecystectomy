@@ -1,0 +1,10 @@
+file,purpose,used_by,privacy_boundary
+record_reporting.csv,annual aggregate cohort flow and arm counts,Figure 1; Figure 2; Figure 6; Supplementary Figures S2 and S4,aggregate only; no patient identifiers
+outcome_components.csv,primary and diagnostic component associations,Figure 3; Figure 5; Table 2 reference; Supplementary Table S9,aggregate only; small cells suppressed
+corrected_bootstrap_canonical_summary.json,corrected primary risk-difference interval,Figure 3; Figure 4; Figure 5,aggregate only
+strict_primary_balance_detail.csv,weighted and unweighted covariate balance,Figure 2; Supplementary Figure S1,aggregate only
+strict_primary_ps_overlap_plot_source.csv,propensity-score overlap bins,Figure 2,aggregate only; small bins suppressed
+baseline_model_sensitivity.csv,strict/chronic-proxy/legacy primary estimates,Figure 4; Figure 5; Supplementary Table S10,aggregate only
+robustness_strict_robustness_results.csv,feasible eligibility sensitivity estimates,Figure 4; Supplementary Figure S3,aggregate only
+component_definitions.csv,component phenotype definitions,Figure 3; methods reference,clinical definitions only
+hospital_descriptive.csv,descriptive hospital-year distribution,methods and supplement reference,aggregate only; small cells suppressed

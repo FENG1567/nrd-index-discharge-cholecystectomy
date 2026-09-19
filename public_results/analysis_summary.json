@@ -1,0 +1,33 @@
+{
+  "study_title": "Completion of Cholecystectomy by Index Discharge and 90-Day Biliary-or-Acute-Pancreatitis Readmission After Coded Mild Biliary Acute Pancreatitis: A Nationwide NRD Study",
+  "years": [2018, 2019, 2020, 2021, 2022],
+  "estimand": "NRD-design-weighted overlap-population 90-day absolute risk difference risk(A=0)-risk(A=1) among live-discharge survivors",
+  "time_zero": "index discharge date",
+  "primary_outcome": "principal-diagnosis biliary-or-acute-pancreatitis readmission within 90 days",
+  "counts": {
+    "n": 82948,
+    "A0": 34530,
+    "A1": 48418,
+    "primary_events_A0": 3911,
+    "primary_events_A1": 1291
+  },
+  "primary": {
+    "risk_A0_percent": 11.438,
+    "risk_A1_percent": 2.738,
+    "rd_percent": 8.700,
+    "ci_low_percent": 8.287,
+    "ci_high_percent": 9.080,
+    "rr_A0_over_A1": 4.18,
+    "ess_A0": 29011,
+    "ess_A1": 40052
+  },
+  "bootstrap": {
+    "seed": 20260913,
+    "replicates": 1000,
+    "method": "corrected full-nuisance-refit within-stratum hospital-cluster percentile bootstrap"
+  },
+  "small_cell_rule": "Counts 1-10 are represented as <11 and the corresponding percentage is withheld.",
+  "patient_level_exported": false,
+  "public_scope": "aggregate-only"
+}
+

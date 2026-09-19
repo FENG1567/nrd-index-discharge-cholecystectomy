@@ -1,0 +1,1048 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00"
+  },
+  "specification": {
+    "year": 2022,
+    "kind": "CORE",
+    "dataset_name": "NRD_2022_CORE",
+    "observations": 16517253,
+    "declared_elements": 127,
+    "source_url": "https://hcup-us.ahrq.gov/db/nation/nrd/stats/FileSpecifications_NRD_2022_Core.TXT",
+    "source_page_url": "https://hcup-us.ahrq.gov/db/nation/nrd/nrdfilespecs.jsp",
+    "source_http_status": 200,
+    "source_bytes": 14683,
+    "source_sha256": "db9535c152a5e3d025bd91f09b1b9c008b0f0ecc793426fa0e3bd0f6da526536",
+    "retrieved_at_utc": "2026-09-11T06:13:29+00:00",
+    "created_on": "11/06/2024",
+    "parsed_elements": 127,
+    "ordered_columns": [
+      {
+        "position": 1,
+        "name": "AGE",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Age in years at admission"
+      },
+      {
+        "position": 2,
+        "name": "AWEEKEND",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Admission day is a weekend"
+      },
+      {
+        "position": 3,
+        "name": "DIED",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Died during hospitalization"
+      },
+      {
+        "position": 4,
+        "name": "DISCWT",
+        "length": 11,
+        "decimal_digits": 7,
+        "type": "Num",
+        "label": "Weight to discharges in universe"
+      },
+      {
+        "position": 5,
+        "name": "DISPUNIFORM",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Disposition of patient (uniform)"
+      },
+      {
+        "position": 6,
+        "name": "DMONTH",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Discharge month"
+      },
+      {
+        "position": 7,
+        "name": "DQTR",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Discharge quarter"
+      },
+      {
+        "position": 8,
+        "name": "DRG",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "DRG in effect on discharge date"
+      },
+      {
+        "position": 9,
+        "name": "DRGVER",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "DRG grouper version used on discharge date"
+      },
+      {
+        "position": 10,
+        "name": "DRG_NoPOA",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "DRG in use on discharge date, calculated without POA"
+      },
+      {
+        "position": 11,
+        "name": "ELECTIVE",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Elective versus non-elective admission"
+      },
+      {
+        "position": 12,
+        "name": "FEMALE",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Indicator of sex"
+      },
+      {
+        "position": 13,
+        "name": "HCUP_ED",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "HCUP Emergency Department service indicator"
+      },
+      {
+        "position": 14,
+        "name": "HOSP_NRD",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD hospital identifier"
+      },
+      {
+        "position": 15,
+        "name": "I10_BIRTH",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "ICD-10-CM Birth Indicator"
+      },
+      {
+        "position": 16,
+        "name": "I10_DELIVERY",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "ICD-10-CM Delivery Indicator"
+      },
+      {
+        "position": 17,
+        "name": "I10_DX1",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 1"
+      },
+      {
+        "position": 18,
+        "name": "I10_DX2",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 2"
+      },
+      {
+        "position": 19,
+        "name": "I10_DX3",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 3"
+      },
+      {
+        "position": 20,
+        "name": "I10_DX4",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 4"
+      },
+      {
+        "position": 21,
+        "name": "I10_DX5",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 5"
+      },
+      {
+        "position": 22,
+        "name": "I10_DX6",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 6"
+      },
+      {
+        "position": 23,
+        "name": "I10_DX7",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 7"
+      },
+      {
+        "position": 24,
+        "name": "I10_DX8",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 8"
+      },
+      {
+        "position": 25,
+        "name": "I10_DX9",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 9"
+      },
+      {
+        "position": 26,
+        "name": "I10_DX10",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 10"
+      },
+      {
+        "position": 27,
+        "name": "I10_DX11",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 11"
+      },
+      {
+        "position": 28,
+        "name": "I10_DX12",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 12"
+      },
+      {
+        "position": 29,
+        "name": "I10_DX13",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 13"
+      },
+      {
+        "position": 30,
+        "name": "I10_DX14",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 14"
+      },
+      {
+        "position": 31,
+        "name": "I10_DX15",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 15"
+      },
+      {
+        "position": 32,
+        "name": "I10_DX16",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 16"
+      },
+      {
+        "position": 33,
+        "name": "I10_DX17",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 17"
+      },
+      {
+        "position": 34,
+        "name": "I10_DX18",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 18"
+      },
+      {
+        "position": 35,
+        "name": "I10_DX19",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 19"
+      },
+      {
+        "position": 36,
+        "name": "I10_DX20",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 20"
+      },
+      {
+        "position": 37,
+        "name": "I10_DX21",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 21"
+      },
+      {
+        "position": 38,
+        "name": "I10_DX22",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 22"
+      },
+      {
+        "position": 39,
+        "name": "I10_DX23",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 23"
+      },
+      {
+        "position": 40,
+        "name": "I10_DX24",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 24"
+      },
+      {
+        "position": 41,
+        "name": "I10_DX25",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 25"
+      },
+      {
+        "position": 42,
+        "name": "I10_DX26",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 26"
+      },
+      {
+        "position": 43,
+        "name": "I10_DX27",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 27"
+      },
+      {
+        "position": 44,
+        "name": "I10_DX28",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 28"
+      },
+      {
+        "position": 45,
+        "name": "I10_DX29",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 29"
+      },
+      {
+        "position": 46,
+        "name": "I10_DX30",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 30"
+      },
+      {
+        "position": 47,
+        "name": "I10_DX31",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 31"
+      },
+      {
+        "position": 48,
+        "name": "I10_DX32",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 32"
+      },
+      {
+        "position": 49,
+        "name": "I10_DX33",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 33"
+      },
+      {
+        "position": 50,
+        "name": "I10_DX34",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 34"
+      },
+      {
+        "position": 51,
+        "name": "I10_DX35",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 35"
+      },
+      {
+        "position": 52,
+        "name": "I10_DX36",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 36"
+      },
+      {
+        "position": 53,
+        "name": "I10_DX37",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 37"
+      },
+      {
+        "position": 54,
+        "name": "I10_DX38",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 38"
+      },
+      {
+        "position": 55,
+        "name": "I10_DX39",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 39"
+      },
+      {
+        "position": 56,
+        "name": "I10_DX40",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-CM Diagnosis 40"
+      },
+      {
+        "position": 57,
+        "name": "I10_INJURY",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Injury ICD-10-CM diagnosis reported on record (1: First-listed injury; 2: Other than first-listed injury; 0: No injury)"
+      },
+      {
+        "position": 58,
+        "name": "I10_MULTINJURY",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Multiple ICD-10-CM injuries reported on record"
+      },
+      {
+        "position": 59,
+        "name": "I10_NDX",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "ICD-10-CM Number of diagnoses on this record"
+      },
+      {
+        "position": 60,
+        "name": "I10_NPR",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "ICD-10-PCS Number of procedures on this record"
+      },
+      {
+        "position": 61,
+        "name": "I10_PR1",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 1"
+      },
+      {
+        "position": 62,
+        "name": "I10_PR2",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 2"
+      },
+      {
+        "position": 63,
+        "name": "I10_PR3",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 3"
+      },
+      {
+        "position": 64,
+        "name": "I10_PR4",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 4"
+      },
+      {
+        "position": 65,
+        "name": "I10_PR5",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 5"
+      },
+      {
+        "position": 66,
+        "name": "I10_PR6",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 6"
+      },
+      {
+        "position": 67,
+        "name": "I10_PR7",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 7"
+      },
+      {
+        "position": 68,
+        "name": "I10_PR8",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 8"
+      },
+      {
+        "position": 69,
+        "name": "I10_PR9",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 9"
+      },
+      {
+        "position": 70,
+        "name": "I10_PR10",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 10"
+      },
+      {
+        "position": 71,
+        "name": "I10_PR11",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 11"
+      },
+      {
+        "position": 72,
+        "name": "I10_PR12",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 12"
+      },
+      {
+        "position": 73,
+        "name": "I10_PR13",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 13"
+      },
+      {
+        "position": 74,
+        "name": "I10_PR14",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 14"
+      },
+      {
+        "position": 75,
+        "name": "I10_PR15",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 15"
+      },
+      {
+        "position": 76,
+        "name": "I10_PR16",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 16"
+      },
+      {
+        "position": 77,
+        "name": "I10_PR17",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 17"
+      },
+      {
+        "position": 78,
+        "name": "I10_PR18",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 18"
+      },
+      {
+        "position": 79,
+        "name": "I10_PR19",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 19"
+      },
+      {
+        "position": 80,
+        "name": "I10_PR20",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 20"
+      },
+      {
+        "position": 81,
+        "name": "I10_PR21",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 21"
+      },
+      {
+        "position": 82,
+        "name": "I10_PR22",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 22"
+      },
+      {
+        "position": 83,
+        "name": "I10_PR23",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 23"
+      },
+      {
+        "position": 84,
+        "name": "I10_PR24",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 24"
+      },
+      {
+        "position": 85,
+        "name": "I10_PR25",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "ICD-10-PCS Procedure 25"
+      },
+      {
+        "position": 86,
+        "name": "I10_SERVICELINE",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "ICD-10-CM/PCS Hospital Service Line"
+      },
+      {
+        "position": 87,
+        "name": "KEY_NRD",
+        "length": 15,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD record identifier"
+      },
+      {
+        "position": 88,
+        "name": "LOS",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Length of stay (cleaned)"
+      },
+      {
+        "position": 89,
+        "name": "MDC",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "MDC in effect on discharge date"
+      },
+      {
+        "position": 90,
+        "name": "MDC_NoPOA",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "MDC in use on discharge date, calculated without POA"
+      },
+      {
+        "position": 91,
+        "name": "NRD_DaysToEvent",
+        "length": 10,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Timing variable used to identify days between admissions"
+      },
+      {
+        "position": 92,
+        "name": "NRD_STRATUM",
+        "length": 5,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "NRD stratum used for weighting"
+      },
+      {
+        "position": 93,
+        "name": "NRD_VisitLink",
+        "length": 7,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "NRD visitlink"
+      },
+      {
+        "position": 94,
+        "name": "PAY1",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Primary expected payer (uniform)"
+      },
+      {
+        "position": 95,
+        "name": "PCLASS_ORPROC",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Indicates operating room (major diagnostic or therapeutic) procedure on the record"
+      },
+      {
+        "position": 96,
+        "name": "PL_NCHS",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Patient Location: NCHS Urban-Rural Code"
+      },
+      {
+        "position": 97,
+        "name": "PRDAY1",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR1"
+      },
+      {
+        "position": 98,
+        "name": "PRDAY2",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR2"
+      },
+      {
+        "position": 99,
+        "name": "PRDAY3",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR3"
+      },
+      {
+        "position": 100,
+        "name": "PRDAY4",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR4"
+      },
+      {
+        "position": 101,
+        "name": "PRDAY5",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR5"
+      },
+      {
+        "position": 102,
+        "name": "PRDAY6",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR6"
+      },
+      {
+        "position": 103,
+        "name": "PRDAY7",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR7"
+      },
+      {
+        "position": 104,
+        "name": "PRDAY8",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR8"
+      },
+      {
+        "position": 105,
+        "name": "PRDAY9",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR9"
+      },
+      {
+        "position": 106,
+        "name": "PRDAY10",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR10"
+      },
+      {
+        "position": 107,
+        "name": "PRDAY11",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR11"
+      },
+      {
+        "position": 108,
+        "name": "PRDAY12",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR12"
+      },
+      {
+        "position": 109,
+        "name": "PRDAY13",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR13"
+      },
+      {
+        "position": 110,
+        "name": "PRDAY14",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR14"
+      },
+      {
+        "position": 111,
+        "name": "PRDAY15",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR15"
+      },
+      {
+        "position": 112,
+        "name": "PRDAY16",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR16"
+      },
+      {
+        "position": 113,
+        "name": "PRDAY17",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR17"
+      },
+      {
+        "position": 114,
+        "name": "PRDAY18",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR18"
+      },
+      {
+        "position": 115,
+        "name": "PRDAY19",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR19"
+      },
+      {
+        "position": 116,
+        "name": "PRDAY20",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR20"
+      },
+      {
+        "position": 117,
+        "name": "PRDAY21",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR21"
+      },
+      {
+        "position": 118,
+        "name": "PRDAY22",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR22"
+      },
+      {
+        "position": 119,
+        "name": "PRDAY23",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR23"
+      },
+      {
+        "position": 120,
+        "name": "PRDAY24",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR24"
+      },
+      {
+        "position": 121,
+        "name": "PRDAY25",
+        "length": 3,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Number of days from admission to I10_PR25"
+      },
+      {
+        "position": 122,
+        "name": "REHABTRANSFER",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "A combined record involving rehab transfer"
+      },
+      {
+        "position": 123,
+        "name": "RESIDENT",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Patient State is the same as Hospital State"
+      },
+      {
+        "position": 124,
+        "name": "SAMEDAYEVENT",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Char",
+        "label": "Transfer flag indicating combination of discharges involve same day events"
+      },
+      {
+        "position": 125,
+        "name": "TOTCHG",
+        "length": 10,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Total charges (cleaned)"
+      },
+      {
+        "position": 126,
+        "name": "YEAR",
+        "length": 4,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Calendar year"
+      },
+      {
+        "position": 127,
+        "name": "ZIPINC_QRTL",
+        "length": 2,
+        "decimal_digits": 0,
+        "type": "Num",
+        "label": "Median household income national quartile for patient ZIP Code"
+      }
+    ],
+    "validation": {
+      "http_200": true,
+      "sha256_nonempty": true,
+      "parsed_equals_declared": true,
+      "observations_match_page": true,
+      "dataset_name_match_page": true,
+      "positions_contiguous": true
+    }
+  }
+}
