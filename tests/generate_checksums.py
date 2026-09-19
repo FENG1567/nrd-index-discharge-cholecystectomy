@@ -18,7 +18,7 @@ def digest(path: Path) -> str:
 
 def main() -> int:
     entries = []
-    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and p.name != TARGET.name and "build" not in p.parts and "__pycache__" not in p.parts):
+    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and p.name != TARGET.name and ".git" not in p.parts and "build" not in p.parts and "__pycache__" not in p.parts):
         entries.append(f"{digest(path)}  {path.relative_to(ROOT).as_posix()}\n")
     TARGET.write_text("".join(entries), encoding="utf-8")
     print(f"checksums rows={len(entries)}")
@@ -27,4 +27,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

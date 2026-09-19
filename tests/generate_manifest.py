@@ -41,7 +41,7 @@ def category(relative: str) -> str:
 
 def main() -> int:
     rows = []
-    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and not any(part in {"build", "__pycache__"} for part in p.parts) and p.name not in EXCLUDED):
+    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and not any(part in {".git", "build", "__pycache__"} for part in p.parts) and p.name not in EXCLUDED):
         relative = path.relative_to(ROOT).as_posix()
         rows.append({"path": relative, "size_bytes": path.stat().st_size, "sha256": digest(path), "category": category(relative), "provenance_source_path_class": "public-source-or-repository-derived", "public_status": "public"})
     target = ROOT / "FILE_MANIFEST.csv"
@@ -55,4 +55,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
